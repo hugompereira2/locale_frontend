@@ -2,13 +2,14 @@ export interface CardTendenciasProps {
     id: number;
     picture: string;
     title: string;
+    onOpen: () => void
   }
   
-  export function CardTendencias(tendencia: CardTendenciasProps) {
+  export function CardTendencias({id, picture, title, onOpen}: CardTendenciasProps) {
     return (
-      <div key={tendencia.id}>
-        <img src={tendencia.picture} alt={tendencia.title} />
-        <label>{tendencia.title}</label>
+      <div key={id} onClick={ () => onOpen()}>
+        <img src={picture} alt={title} />
+        <label>{title}</label>
       </div>
     )
   }

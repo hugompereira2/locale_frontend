@@ -4,6 +4,7 @@ import { Container, Hamburguer } from './style'
 import userIcon from '../../assets/userIcon.svg'
 import arrow from '../../assets/arrow.svg'
 import chat from '../../assets/chat.svg'
+import { FaUserAlt } from 'react-icons/fa'
 
 export function TopMenu() {
 
@@ -43,9 +44,8 @@ export function TopMenu() {
             { showNav ?
                 <Hamburguer>
                     <section>
-                        <img src={userIcon} alt="User" />
+                        <FaUserAlt size={25}/>
                         <p>Nome do usuário</p>
-                        <img src={arrow} alt="Options" />
                     </section>
                     <ul>
                         <li onClick={Show}>INÍCIO</li>

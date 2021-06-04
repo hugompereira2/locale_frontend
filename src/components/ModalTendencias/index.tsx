@@ -2,13 +2,16 @@ import Modal from 'react-modal'
 import { useState } from 'react'
 
 interface ModalProps {
+    id: number,
     isOpen: boolean;
+    onClose: () => void;
 }
 
 const customStyles = {
     content : {
-      top                   : '50%',
-      left                  : '50%',
+      
+      top                   : '0px',
+      left                  : '0px',
       right                 : 'auto',
       bottom                : 'auto',
       marginRight           : '-50%',
@@ -16,12 +19,14 @@ const customStyles = {
     }
   };
 
-export function ModalTendencias({ isOpen }: ModalProps) {
+export function ModalTendencias({ isOpen, onClose }: ModalProps) {
 
     const [title, setTitle] = useState('')
+    if (!isOpen) return null
 
     return (
         <Modal
+            style={customStyles}
             isOpen={isOpen}
             overlayClassName="react-modal-overlay"
             className="react-modal-content"
@@ -29,6 +34,7 @@ export function ModalTendencias({ isOpen }: ModalProps) {
 
         <button
             type="button"
+            onClick={() => onClose()}
             className="react-modal-close"
         >
         </button>

@@ -112,6 +112,19 @@ export const Hamburguer = styled.div`
     z-index: 10;
 
   section {
+    margin: 70px 0px 40px 20px;
+  }
+
+  section > svg:first-child {
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #2E5A76;
+  }
+
+  section > p {
+    font-size: 16px;
+    color: #121A25;
+    font-weight: 500;
   }
 
    ul {
