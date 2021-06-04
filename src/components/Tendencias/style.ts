@@ -10,6 +10,7 @@ export const Container = styled.main`
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         grid-gap: 48px 30px;
+        margin-bottom: 20px;
 
     }
 
@@ -17,6 +18,11 @@ export const Container = styled.main`
         background: var(--wht) 0% 0% no-repeat padding-box;
         box-shadow: 0px 15px 40px #A6ADC933;
         border-radius: 10px;
+
+        @media(max-width: 345px) {
+            width: 250px;
+            height: 246px;
+        }
         }
     
     
@@ -24,6 +30,8 @@ export const Container = styled.main`
         width:100%;
         height:80%;
         border-radius: 10px 10px 0px 0px;
+        object-fit: cover;
+        margin-bottom: 10px;
     }
 
     h1 {
@@ -53,7 +61,6 @@ export const Container = styled.main`
         color: var(--txt-1);
         font: normal normal 600 14px/18px Montserrat;
         color: #121A25;
-        margin-top: 15px;
         margin-left: 15px;
     }
 `

@@ -30,12 +30,39 @@ export const Global = createGlobalStyle`
     nav {
       border-radius: 0px 0px 0px 0px !important;
     }
-    nav > div > section {
+    nav > div:first-child > section {
         display: none !important;
     }
     nav > div > svg {
       margin: 0px auto;
     }
+    nav > div > div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative !important;
+      width: 35px;
+      height: 30px;
+    }
+    nav > div > div > section {
+      background-color: #FFFFFF;
+      height: 5px;
+      width: 100%;
+      margin: 3px auto;
+    }
+    nav > div > div > section:last-child {
+      width: 50% !important;
+      align-self: flex-start;
+      margin: 3px 0px;
+    }
+    nav > div:last-child > ul > li:first-child{
+      font: normal normal bold 14px/22px Montserrat;
+      border-bottom: #2E5A76 solid 2px;
+    }
+    nav > div:last-child > ul > li:nth-child(2){
+      border-bottom: none !important;
+    }
+
 }
 
   html {

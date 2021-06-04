@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-  ]
+, "style/global.ts"  ]
 }
