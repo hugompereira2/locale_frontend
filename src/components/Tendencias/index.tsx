@@ -14,6 +14,7 @@ export function Tendencias() {
   const [tendencias, setTendencias] = useState<TendenciasProps[]>();
 
   const [modalIsOpen, setModalIsOpen] = useState(false)
+  const [cardSelected, setCardSelected] = useState(0)
 
   useEffect(() => {
     const data = stockData.map(item => item);
@@ -28,11 +29,11 @@ export function Tendencias() {
       <section>
         {
           tendencias?.map(data => {
-            return <CardTendencias key={data.id} id={data.id} title={data.title} picture={data.picture} onOpen={() => setModalIsOpen(true)}/>
+            return <CardTendencias key={data.id} id={data.id} title={data.title} picture={data.picture} onOpen={() => setModalIsOpen(true)} cardSelected={ () => setCardSelected(data.id)}/>
           })
         }
       </section>
-      <ModalTendencias isOpen={modalIsOpen} onClose={ () => setModalIsOpen(false)} id={1}/>
+      <ModalTendencias isOpen={modalIsOpen} onClose={ () => setModalIsOpen(false)} id={cardSelected}/>
     </Container>
   );
 }

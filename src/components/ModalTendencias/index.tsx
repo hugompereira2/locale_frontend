@@ -1,5 +1,6 @@
-import Modal from 'react-modal'
-import { useState } from 'react'
+import Modal from 'react-modal';
+import { stockData } from '../../data'
+import { useEffect, useState } from 'react';
 
 interface ModalProps {
     id: number,
@@ -8,21 +9,34 @@ interface ModalProps {
 }
 
 const customStyles = {
-    content : {
-      
-      top                   : '0px',
-      left                  : '0px',
-      right                 : 'auto',
-      bottom                : 'auto',
-      marginRight           : '-50%',
-      transform             : 'translate(-50%, -50%)'
+    content: {
+        top: '0px',
+        left: '0px',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)'
     }
-  };
+};
 
-export function ModalTendencias({ isOpen, onClose }: ModalProps) {
+interface listaProp {
+    id: number;
+    title: string;
+    picture: string;
+    consumables: {
+        title: string;
+    }[];
+}[]
 
-    const [title, setTitle] = useState('')
+export function ModalTendencias({ isOpen, onClose, id }: ModalProps) {
     if (!isOpen) return null
+
+    const [lista, setLista] = useState<listaProp[]>()
+
+    useEffect(() => {
+        const data = stockData.filter(item => item.id === id)
+        setLista(data);
+    }, [])
 
     return (
         <Modal
@@ -31,14 +45,14 @@ export function ModalTendencias({ isOpen, onClose }: ModalProps) {
             overlayClassName="react-modal-overlay"
             className="react-modal-content"
         >
-
-        <button
-            type="button"
-            onClick={() => onClose()}
-            className="react-modal-close"
-        >
-        </button>
-        <h1>teste</h1>
+            
+            <button
+                type="button"
+                onClick={() => onClose()}
+                className="react-modal-close"
+            >
+            </button>
+            <h1>teste</h1>
 
         </Modal>
     )
