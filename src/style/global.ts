@@ -23,6 +23,21 @@ export const Global = createGlobalStyle`
       --grn: #5AB984;
   }
 
+  @media(max-width: 930px) {
+    header {
+        display: none;
+    }
+    nav {
+      border-radius: 0px 0px 0px 0px !important;
+    }
+    nav > div > section {
+        display: none !important;
+    }
+    nav > div > svg {
+      margin: 0px auto;
+    }
+}
+
   html {
       // font-size: 1rem = 16px;
       @media(max-width: 1080px) {

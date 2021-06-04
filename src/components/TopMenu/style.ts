@@ -11,7 +11,7 @@ export const Container = styled.nav`
     justify-content: space-between;
     align-items: center;
     margin: 0px auto;
-    
+    padding: 0px 40px;
   }
 
   header {
@@ -21,10 +21,21 @@ export const Container = styled.nav`
     border-radius: 0px 0px 10px 10px;
   }
 
+  header > div {
+    max-width: 1366px;
+    height: 66px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 40px;
+    background: white;
+    list-style: none;
+    align-items: center;
+    margin: 0px auto;
+  }
+
   section {
     display: flex;
     align-items: center;
-
     &:hover {
       cursor: pointer;
     }
@@ -43,17 +54,14 @@ export const Container = styled.nav`
   }
 
   ul {
-    max-width: 1366px;
-    height: 66px;
     display: flex;
     justify-content: space-between;
-    background: white;
     list-style: none;
     align-items: center;
-    margin: 0px auto;
   }
 
   li {
+    margin: 0px 15px;
     font-weight: 500;
     font-size: 14px;
     color: #2E5A76;
@@ -65,7 +73,7 @@ export const Container = styled.nav`
     }
   }
 
-  li:nth-child(6) {
+  div > ul:last-child > li:first-child {
     color: var(--gry-1);
   }
 
@@ -73,7 +81,7 @@ export const Container = styled.nav`
     opacity: 0.2;
   }
 
-  li:nth-child(2) {
+  div > ul:first-child > li:nth-child(2) {
     font: normal normal bold 14px/22px Montserrat;
     border-bottom: #2E5A76 solid 2px;
   }

@@ -3,22 +3,20 @@ import styled from 'styled-components'
 export const Container = styled.main`
     max-width: 1366px;
     margin: 48.5px auto 0px;
+    padding: 0px 40px;
 
     section {
-        margin: auto;
-        height: 150px;
-      
+        margin: auto;      
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         grid-gap: 48px 30px;
+
     }
 
     section > div {
         background: var(--wht) 0% 0% no-repeat padding-box;
-        background: #FFFFFF 0% 0% no-repeat padding-box;
         box-shadow: 0px 15px 40px #A6ADC933;
         border-radius: 10px;
-        opacity: 1;
         }
     
     
@@ -33,7 +31,6 @@ export const Container = styled.main`
         text-align: left;
         letter-spacing: 0px;
         color: #121A25;
-        opacity: 1;
         font-size: 22px;
         margin-bottom: 8.5px;
     }
@@ -46,14 +43,17 @@ export const Container = styled.main`
         color: #121A25;
         margin-bottom: 24px;
         width:38%;
+
+        @media(max-width: 730px) {
+            width: 100%;
+        }
     }
 
     label {
         color: var(--txt-1);
         font: normal normal 600 14px/18px Montserrat;
-        letter-spacing: 0px;
         color: #121A25;
-        opacity: 1;
+        margin-top: 15px;
         margin-left: 15px;
     }
 `
