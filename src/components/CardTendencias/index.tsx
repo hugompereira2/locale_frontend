@@ -8,7 +8,7 @@ export interface CardTendenciasProps {
   
   export function CardTendencias({id, picture, title, onOpen, cardSelected}: CardTendenciasProps) {
     return (
-      <div key={id} onClick={ () => onOpen()}>
+      <div key={id} onClick={ () => onOpen()} >
         <img src={picture} alt={title} />
         <label>{title}</label>
       </div>
