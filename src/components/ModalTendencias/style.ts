@@ -38,6 +38,14 @@ export const Container = styled.div`
     margin: 20px auto;
     padding-bottom: 10px;
     border-bottom: 1.5px solid #00000029;
+
+    @media (max-width: 450px) {
+      font-size: 12px !important;
+
+      svg {
+        position: absolute;
+      }
+    }
   }
 
   svg {

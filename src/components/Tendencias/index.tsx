@@ -13,8 +13,8 @@ interface TendenciasProps {
 export function Tendencias() {
   const [tendencias, setTendencias] = useState<TendenciasProps[]>();
 
-  const [modalIsOpen, setModalIsOpen] = useState(false)
-  const [cardSelected, setCardSelected] = useState(0)
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [cardSelected, setCardSelected] = useState(0);
 
   useEffect(() => {
     const data = stockData.map(item => item);
@@ -29,9 +29,19 @@ export function Tendencias() {
       <section>
         {
           tendencias?.map(data => {
-            return <CardTendencias key={data.id} id={data.id} title={data.title} picture={data.picture} onOpen={() => setModalIsOpen(!modalIsOpen)} cardSelected={ () => setCardSelected(data.id)}/>
+            return (
+              <CardTendencias 
+                key={data.id} 
+                id={data.id} 
+                title={data.title} 
+                picture={data.picture} 
+                onOpen={() => {
+                  setCardSelected(data.id);
+                  setModalIsOpen(true);
+                }}
+              />
+            )
           })
-          
         }
       </section>
       <ModalTendencias isOpen={modalIsOpen} onClose={ () => setModalIsOpen(false)} id={cardSelected}/>

@@ -23,14 +23,12 @@ Modal.setAppElement("#root");
 
 export function ModalTendencias({ isOpen, onClose, id }: ModalProps) {
   const [lista, setLista] = useState<listaProp[]>();
-  console.log(id);
-  
 
   useEffect(() => {
-      if (isOpen) {
-        const data = stockData.filter((item) => item.id === id);
-        setLista(data);
-      }
+    if (isOpen) {
+      const data = stockData.filter((item) => item.id === id);
+      setLista(data);
+    }
   }, [isOpen]);
 
   return (
@@ -42,9 +40,32 @@ export function ModalTendencias({ isOpen, onClose, id }: ModalProps) {
     >
       <Container>
         <div>
-          <h1>Title <AiOutlineCloseCircle size={25} onClick={() => onClose()}
-            className="react-modal-close" /></h1>
-          <ul>            
+          {lista?.map((item) => {
+            return (
+              <h1 key={item.id}>
+                {item.title}
+                <AiOutlineCloseCircle
+                  size={18}
+                  onClick={() => onClose()}
+                  className="react-modal-close"
+                />
+              </h1>
+            );
+          })}
+          <ul>
+            {lista?.map((item) => {
+              return (
+                <>
+                  {item.consumables.map((consumable, index) => {
+                    return (
+                      <>
+                        <li key={index}>{consumable.title}</li>
+                      </>
+                    );
+                  })}
+                </>
+              );
+            })}
           </ul>
         </div>
       </Container>
