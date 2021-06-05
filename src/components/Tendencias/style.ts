@@ -62,5 +62,6 @@ export const Container = styled.main`
         font: normal normal 600 14px/18px Montserrat;
         color: #121A25;
         margin-left: 15px;
+
     }
 `

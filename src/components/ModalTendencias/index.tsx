@@ -1,59 +1,53 @@
-import Modal from 'react-modal';
-import { stockData } from '../../data'
-import { useEffect, useState } from 'react';
+import Modal from "react-modal";
+import { stockData } from "../../data";
+import { useEffect, useState } from "react";
+import { StyledModal, Container } from "./style";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 
 interface ModalProps {
-    id: number,
-    isOpen: boolean;
-    onClose: () => void;
+  id: number;
+  isOpen: boolean;
+  onClose: () => void;
 }
 
-const customStyles = {
-    content: {
-        top: '0px',
-        left: '0px',
-        right: 'auto',
-        bottom: 'auto',
-        marginRight: '-50%',
-        transform: 'translate(-50%, -50%)'
-    }
-};
-
 interface listaProp {
-    id: number;
+  id: number;
+  title: string;
+  picture: string;
+  consumables: {
     title: string;
-    picture: string;
-    consumables: {
-        title: string;
-    }[];
-}[]
+  }[];
+}
+
+Modal.setAppElement("#root");
 
 export function ModalTendencias({ isOpen, onClose, id }: ModalProps) {
-    if (!isOpen) return null
+  const [lista, setLista] = useState<listaProp[]>();
+  console.log(id);
+  
 
-    const [lista, setLista] = useState<listaProp[]>()
-
-    useEffect(() => {
-        const data = stockData.filter(item => item.id === id)
+  useEffect(() => {
+      if (isOpen) {
+        const data = stockData.filter((item) => item.id === id);
         setLista(data);
-    }, [])
+      }
+  }, [isOpen]);
 
-    return (
-        <Modal
-            style={customStyles}
-            isOpen={isOpen}
-            overlayClassName="react-modal-overlay"
-            className="react-modal-content"
-        >
-            
-            <button
-                type="button"
-                onClick={() => onClose()}
-                className="react-modal-close"
-            >
-            </button>
-            <h1>teste</h1>
-
-        </Modal>
-    )
+  return (
+    <StyledModal
+      isOpen={isOpen}
+      onRequestClose={onClose}
+      overlayClassName="react-modal-overlay"
+      className="react-modal-content"
+    >
+      <Container>
+        <div>
+          <h1>Title <AiOutlineCloseCircle size={25} onClick={() => onClose()}
+            className="react-modal-close" /></h1>
+          <ul>            
+          </ul>
+        </div>
+      </Container>
+    </StyledModal>
+  );
 }

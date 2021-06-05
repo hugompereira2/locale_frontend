@@ -29,8 +29,9 @@ export function Tendencias() {
       <section>
         {
           tendencias?.map(data => {
-            return <CardTendencias key={data.id} id={data.id} title={data.title} picture={data.picture} onOpen={() => setModalIsOpen(true)} cardSelected={ () => setCardSelected(data.id)}/>
+            return <CardTendencias key={data.id} id={data.id} title={data.title} picture={data.picture} onOpen={() => setModalIsOpen(!modalIsOpen)} cardSelected={ () => setCardSelected(data.id)}/>
           })
+          
         }
       </section>
       <ModalTendencias isOpen={modalIsOpen} onClose={ () => setModalIsOpen(false)} id={cardSelected}/>
