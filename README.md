@@ -10,8 +10,8 @@
 ## 📸 Screenshots
 
 <p style="text-align: center">
-  <img alt="Desktop" src="https://github.com/hugompereira2/locale_frontend/tree/master/src/assets/preview/Locale.bmp" />
-  <img alt="Mobile" src="https://github.com/hugompereira2/locale_frontend/tree/master/src/assets/preview/Locale_Mobile.bmp" />
+  <img alt="Desktop" src="https://github.com/hugompereira2/locale_frontend/blob/master/src/assets/preview/Desktop.png" />
+  <img alt="Mobile" src="https://github.com/hugompereira2/locale_frontend/blob/master/src/assets/preview/Mobile.png" />
 </p>
 
 ## 🚀 Technologies
