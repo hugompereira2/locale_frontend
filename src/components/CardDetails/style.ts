@@ -20,7 +20,11 @@ export const Container = styled.main`
         object-fit: cover;
         opacity: 0.4;
         margin: 0px 10px auto;
-        min-width: 250px;
+
+        @media (max-width: 740px) {
+            width: 100vw;
+        }
+
     }
 
         p {
@@ -28,8 +32,10 @@ export const Container = styled.main`
         font: normal normal bold 34px/45px Montserrat;
         color: var(--blu-1);
 
-        @media (max-width: 430px) {
+        @media (max-width: 700px) {
             font-size: 25px;
+            margin: 0px auto;
+            text-align: center;
         }
 
         }
