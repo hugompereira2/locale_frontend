@@ -1,15 +1,19 @@
+import { Link } from 'react-router-dom'
+
 export interface CardTendenciasProps {
   id: number;
   picture: string;
   title: string;
-  onOpen: () => void;
 }
 
-export function CardTendencias({id, picture, title, onOpen}: CardTendenciasProps) {
+export function CardTendencias({ id, picture, title }: CardTendenciasProps) {
+
   return (
-    <div key={id} onClick={() => onOpen()} >
-      <img src={picture} alt={title} />
-      <label>{title}</label>
+    <div key={id}>
+      <Link style={{ textDecoration: 'none' }} to={`/CardDetails/${id}`} >
+        <img src={picture} alt={title} />
+        <label>{title}</label>
+      </Link>
     </div>
   )
 }

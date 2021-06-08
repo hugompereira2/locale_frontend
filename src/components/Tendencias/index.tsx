@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { Container } from './style'
 import { stockData } from '../../data'
 import { CardTendencias } from '../CardTendencias';
-import { ModalTendencias } from '../ModalTendencias/index'
 
 interface TendenciasProps {
   id: number;
@@ -12,9 +11,6 @@ interface TendenciasProps {
 
 export function Tendencias() {
   const [tendencias, setTendencias] = useState<TendenciasProps[]>();
-
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [cardSelected, setCardSelected] = useState(0);
 
   useEffect(() => {
     const data = stockData.map(item => item);
@@ -35,16 +31,11 @@ export function Tendencias() {
                 id={data.id} 
                 title={data.title} 
                 picture={data.picture} 
-                onOpen={() => {
-                  setCardSelected(data.id);
-                  setModalIsOpen(true);
-                }}
               />
             )
           })
         }
       </section>
-      <ModalTendencias isOpen={modalIsOpen} onClose={ () => setModalIsOpen(false)} id={cardSelected}/>
     </Container>
   );
 }
